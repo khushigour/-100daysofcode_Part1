@@ -26,21 +26,38 @@ using namespace std;
 
 // ------------------------------------------------------------------------
 // Approach 2
+// int main()
+// {
+// 	int n, xor1 = 0; cin>>n;
+// 	int arr[n];
+// 	for(int i=0; i<n; i++)
+// 		{
+// 			cin>>arr[i];
+// 			xor1 ^=arr[i];
+// 			cout<<xor1<<"\n";
+// 		}
+
+// 	for(int i=1; i<n; i++)
+// 	{
+// 		xor1 ^=i;
+// 	}
+ 
+// 	cout<<xor1<<"\n";
+// }
+
+
+//Approach3----------------------------------------------------------------
 int main()
 {
-	int n, xor1 = 0; cin>>n;
-	int arr[n];
+	int n; cin>>n; int arr[n];
 	for(int i=0; i<n; i++)
-		{
-			cin>>arr[i];
-			xor1 ^=arr[i];
-			cout<<xor1<<"\n";
-		}
-
-	for(int i=1; i<n; i++)
 	{
-		xor1 ^=i;
+		cin>>arr[i];
 	}
- 
-	cout<<xor1<<"\n";
+
+    // calculte sum till n-1
+	int actual_sum = n*(n-1)/2;
+	int fake_sum = accumulate(arr, arr+n,0);
+	cout<<fake_sum-actual_sum<<"\n";
+
 }
