@@ -1,0 +1,24 @@
+// Find the duplicate element in an array constaining numbers from 1 to n-1
+// and only 1 duplicate is present.
+
+// Input:  { 1, 2, 3, 4, 4 }
+// Output: The duplicate element is 4
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int  n; cin>>n;
+	int arr[n];
+	for(int i=0; i<n; i++)cin>>arr[i];
+
+    int i;
+	for(i=0; i<n; i++)
+	{
+		if(arr[arr[i]-1]<0)break;
+		else arr[arr[i]-1]= -arr[arr[i]-1];
+	}
+
+	cout<<arr[i]<<"\n";
+}
