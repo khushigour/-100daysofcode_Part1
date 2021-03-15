@@ -7,18 +7,40 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Approach 1
+// int main()
+// {
+// 	int  n; cin>>n;
+// 	int arr[n];
+// 	for(int i=0; i<n; i++)cin>>arr[i];
+
+//     int i;
+// 	for(i=0; i<n; i++)
+// 	{
+// 		if(arr[arr[i]-1]<0)break;
+// 		else arr[arr[i]-1]= -arr[arr[i]-1];
+// 	}
+
+// 	cout<<arr[i]<<"\n";
+// }
+
+// ------------------------------------------------------------------------
+// Approach 2
 int main()
 {
-	int  n; cin>>n;
+	int n, xor1 = 0; cin>>n;
 	int arr[n];
-	for(int i=0; i<n; i++)cin>>arr[i];
+	for(int i=0; i<n; i++)
+		{
+			cin>>arr[i];
+			xor1 ^=arr[i];
+			cout<<xor1<<"\n";
+		}
 
-    int i;
-	for(i=0; i<n; i++)
+	for(int i=1; i<n; i++)
 	{
-		if(arr[arr[i]-1]<0)break;
-		else arr[arr[i]-1]= -arr[arr[i]-1];
+		xor1 ^=i;
 	}
-
-	cout<<arr[i]<<"\n";
+ 
+	cout<<xor1<<"\n";
 }
