@@ -1,4 +1,4 @@
-// Sort 2 given arrays
+// Sort 2 sorted given arrays
 // Input: 5 3
 // 1 4 7 8 10
 // 2 3 9
