@@ -1,4 +1,4 @@
-// Sort 2 sorted given arrays
+// In-place sort 2 sorted given arrays
 // Input: 5 3
 // 1 4 7 8 10
 // 2 3 9
@@ -30,50 +30,39 @@ int main()
 
   while(i<n && j<m)
   {
-     if(arr[i]>=Arr[j])
+    if(arr[i]==Arr[j])
+    {
+      i++; j++; 
+      continue;
+    }
+    else if(arr[i]>Arr[j])
      {
-     	v.push_back(Arr[j]);
-     	j++;
+     	  int temp = arr[i];
+        arr[i] = Arr[j];
+        Arr[j]= temp;
+        int k = j;
+        while(k<m-1 && Arr[k]>Arr[k+1])
+        {
+           swap(Arr[k], Arr[k+1]);
+           k++;
+        }
      }
-     else
-     {
-     	v.push_back(arr[i]);
-     	i++;
-     }
+     i++;
+
+    
   }
 
-  if(i!=n)
+cout<<"{ ";
+   for(int i=0; i<n; i++)
   {
-  	while(i<n)
-  	{
-  		v.push_back(arr[i]);
-  		i++;
-  	}
+    cout<<arr[i]<<" ";
   }
-  if(j!=m)
+cout<<"}\n";
+cout<<"{ ";
+    for(int i=0; i<m; i++)
   {
-  	while(j<m)
-  	{
-  		v.push_back(arr[j]);
-  		j++;
-  	}
+    cout<<Arr[i]<<" ";
   }
-
-  // for(int i=0; i<n+m; i++)
-  // {
-  // 	cout<<v[i]<<" ";
-  // }
-
-  for(int i=0; i<n+m; i++)
-  {
-  	if(i<n)arr[i]= v[i];
-  	else Arr[i-n] = v[i];
- }
-
-  for(int i=0; i<n; i++)cout<<arr[i]<<" ";
-  cout<<"\n";
-  for(int i=0; i<m; i++)cout<<Arr[i]<<" ";
- 
-  
+cout<<"}\n";  
 
 }
